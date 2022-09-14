@@ -54,21 +54,27 @@ describe("test size: ", ()=> {
     })
 })
 
-test("test dequeue: list with 1 element should dequeue with the element and empty queue", () => {
-    const queue = createQueue();
+test("test dequeue: list with 2 element should dequeue with the recent element", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
     queue.enqueue(3)
     expect(queue.dequeue()).toEqual(3)
-    expect(queue.isEmpty()).toBeTruthy()
 })
 test("test dequeue: empty list should dequeue with null element and empty queue", () => {
-    const queue = createQueue();
+    const queue = createQueue()
     expect(queue.dequeue()).toBeNull()
     expect(queue.isEmpty()).toBeTruthy()
 })
 
 test("test clear: list with 1 element should clear to empty queue", () => {
-    const queue = createQueue();
+    const queue = createQueue()
     queue.enqueue(3)
+    queue.clear()
+    expect(queue.isEmpty()).toBeTruthy()
+})
+
+test("test clear: empty list should clear to empty queue", () => {
+    const queue = createQueue()
     queue.clear()
     expect(queue.isEmpty()).toBeTruthy()
 })
